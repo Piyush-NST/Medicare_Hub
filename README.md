@@ -224,3 +224,4 @@ npm run dev
 
 This markdown file provides a comprehensive guide for both API usage and frontend setup. You can adapt the URL, parameters, and more based on your specific requirements.
 
+# medicarehub
