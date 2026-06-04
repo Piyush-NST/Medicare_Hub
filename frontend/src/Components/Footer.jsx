@@ -9,7 +9,7 @@ const Footer = () => {
                     <img className="mb-5 w-40" src={assets.logo} alt="logo" />
                     <p className="w-full md:w-2/3 text-gray-600 leading-6">
                         "Good health is not just about treating illness,
-                        but about fostering a lifestyle of balance, prevention, and proactive care."<br/>
+                        but about fostering a lifestyle of balance, prevention, and proactive care."<br />
 
                     </p>
                 </div>
@@ -25,14 +25,14 @@ const Footer = () => {
                 <div>
                     <p className="text-xl font-medium mb-5">Get in touch</p>
                     <ul className="flex flex-col gap-2 text-gray-600">
-                        <li>+91 72250-72883</li>
-                        <li>soniya.04malviya@gmail.com</li>
+                        <li>+91 48484-87898</li>
+                        <li>piyushkaushal238@gmail.com</li>
                     </ul>
                 </div>
             </div>
             <div className="mt-5">
                 <hr />
-                <p className="py-5 text-sm text-center">Copyright 2024 @ CureConnect - All Right Reserved.</p>
+                <p className="py-5 text-sm text-center">Copyright 2024 @ Medicare Hub - All Right Reserved.</p>
             </div>
         </div>
     );

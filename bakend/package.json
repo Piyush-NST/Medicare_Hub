@@ -9,6 +9,9 @@
     "start": "node server.js",
     "server": "nodemon server.js"
   },
+  "overrides": {
+    "jwa": "1.4.2"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

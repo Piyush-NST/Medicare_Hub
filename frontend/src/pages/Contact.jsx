@@ -1,5 +1,5 @@
 import React from "react";
-import {assets} from "../assets/assets.js";
+import { assets } from "../assets/assets.js";
 const Contact = () => {
     return (
         <div>
@@ -7,12 +7,12 @@ const Contact = () => {
                 <p>CONTACT <span className="text-blue-900 font-semibold">US</span></p>
             </div>
             <div className="my-10 flex flex-col justify-center md:flex-row gap-10 mb-28 text-sm">
-                <img className="w-full md:max-w-[360px]" src={assets.contact_image} alt="contact-image"/>
+                <img className="w-full md:max-w-[360px]" src={assets.contact_image} alt="contact-image" />
                 <div className="flex flex-col justify-center items-start gap-6">
                     <p className="font-semibold text-lg text-gray-600">Our OFFICE</p>
-                    <p className="text-gray-500">Rishihood University <br/>NH-44 (GT Road), Delhi NCR , Sonipat, Haryana</p>
-                    <p className="text-gray-500">Tel: (1800-120-6631) <br/>Email:soniya.04malviya@gmail.com</p>
-                    <p className="font-semibold text-lg text-gray-600">Careers at CureConnect</p>
+                    <p className="text-gray-500">Rishihood University <br />NH-44 (GT Road), Delhi NCR , Sonipat, Haryana</p>
+                    <p className="text-gray-500">Tel: (1800-120-6631) <br />Email:piyushkaushal238@gmail.com</p>
+                    <p className="font-semibold text-lg text-gray-600">Careers at Medicare Hub</p>
                     <p className="text-gray-500">Learn more about our teams and job openings.</p>
                     <button className="border border-black px-8 py-4 text-sm hover:bg-blue-900 hover:text-white transition-all duration-500">Explore Jobs</button>
                 </div>

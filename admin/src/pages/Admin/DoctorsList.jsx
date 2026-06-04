@@ -3,7 +3,7 @@ import {AdminContext} from "../../context/AdminContext.jsx";
 
 const DoctorsList = () => {
 
-    const {doctors, aToken, getAllDoctors, changeAvailability, loading} = useContext(AdminContext)
+    const {doctors, aToken, getAllDoctors, changeAvailability, loading, deleteDoctor} = useContext(AdminContext)
 
     useEffect(() => {
         if(aToken){
@@ -22,17 +22,30 @@ const DoctorsList = () => {
                 <div className="w-full flex flex-wrap gap-4 pt-5 gap-y-6">
                     {doctors.map((item, index)=>(
                         <div className="border border-indigo-200 rounded-xl max-w-56 overflow-hidden cursor-pointer group" key={index}>
-                            <img className="bg-indigo-50 group-hover:bg-blue-900 transition-all duration-500" src={item.image} alt=""/>
+                            <img className="bg-indigo-50 group-hover:bg-blue-900 transition-all duration-500 w-full object-cover" src={item.image} alt=""/>
                             <div className="p-4">
                                 <p className="text-neutral-800 text-lg font-medium">{item.name}</p>
                                 <p className="text-zinc-600 text-sm">{item.speciality}</p>
-                                <div className="mt-2 flex items-center gap-1 text-sm">
-                                    <input
-                                        type="checkbox"
-                                        checked={item.available}
-                                        onChange={() => changeAvailability(item._id)}
-                                    />
-                                    <p>Available</p>
+                                <div className="mt-4 flex items-center justify-between text-sm">
+                                    <div className="flex items-center gap-1">
+                                        <input
+                                            type="checkbox"
+                                            checked={item.available}
+                                            onChange={() => changeAvailability(item._id)}
+                                        />
+                                        <p>Available</p>
+                                    </div>
+                                    <button 
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            if (window.confirm(`Are you sure you want to delete ${item.name}?`)) {
+                                                deleteDoctor(item._id);
+                                            }
+                                        }}
+                                        className="text-red-500 hover:text-red-700 font-medium transition-colors"
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             </div>
                         </div>
