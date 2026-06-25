@@ -19,7 +19,10 @@ connectDB()
 connectCloudinary()
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: process.env.FRONTEND_URL ? process.env.FRONTEND_URL.split(",") : true,
+    credentials: true,
+}));
 app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/admin', adminRouter)
