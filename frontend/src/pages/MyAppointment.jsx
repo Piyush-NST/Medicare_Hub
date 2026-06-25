@@ -47,6 +47,49 @@ const MyAppointment = () => {
         }
     }
 
+    const handlePayment = async () => {
+        try {
+            const response = await fetch(backendUrl + '/create-order', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.success) {
+                throw new Error(data.message || 'Failed to create Razorpay order');
+            }
+
+            if (!window.Razorpay) {
+                throw new Error('Razorpay checkout script failed to load');
+            }
+
+            const options = {
+                key: data.key_id,
+                amount: data.amount,
+                currency: data.currency,
+                name: 'Medicare Hub',
+                description: 'Appointment Payment',
+                order_id: data.order_id,
+                handler: function (response) {
+                    alert('Payment Successful');
+                    console.log(response);
+                },
+                theme: {
+                    color: '#1e3a8a',
+                },
+            };
+
+            const razorpay = new window.Razorpay(options);
+            razorpay.open();
+        } catch (err) {
+            console.log(err);
+            toast.error(err.message);
+        }
+    }
+
     useEffect(() => {
         if(token) {
             getUserAppointments()
@@ -71,7 +114,7 @@ const MyAppointment = () => {
                         </div>
                         <div></div>
                         <div className="flex flex-col gap-2 justify-end">
-                            {!item.cancelled && <button className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-blue-900 hover:text-white ">Pay Online</button>}
+                            {!item.cancelled && <button onClick={handlePayment} className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-blue-900 hover:text-white ">Pay Online</button>}
                             {!item.cancelled && <button onClick={() => cancelAppointment(item._id)}
                                                         className="text-sm text-stone-500 text-center sm:min-w-48 py-2 border rounded hover:bg-red-600 hover:text-white ">Cancel
                                 appointment</button>

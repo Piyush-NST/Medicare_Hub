@@ -3,7 +3,6 @@ import {assets} from "../assets/assets.js";
 import {AdminContext} from "../context/AdminContext.jsx";
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
-import {data} from "autoprefixer";
 import {toast} from "react-toastify";
 
 const Login = () => {
@@ -34,7 +33,7 @@ const Login = () => {
                 }
             }
         }catch(e){
-            toast.error(e.message)
+            toast.error(e.response?.data?.message || e.message)
         }
     }
 

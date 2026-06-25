@@ -5,6 +5,7 @@ import connectCloudinary from "./config/cloudinary.js";
 import connectDB from "./config/mongoBD.js";
 import adminRouter from "./routes/adminroute.js";
 import doctorRouter from "./routes/doctorroute.js";
+import paymentRouter from "./routes/paymentRoute.js";
 
 import userRouter from "./routes/userRoute.js";
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/admin', adminRouter)
 app.use('/api/doctor', doctorRouter)
 app.use('/api/user', userRouter)
+app.use('/', paymentRouter)
 
 app.get('/', (req, res) => {
     res.send("API WORKING Done")
@@ -40,4 +42,3 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 })
-

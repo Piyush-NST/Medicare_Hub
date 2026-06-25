@@ -22,7 +22,7 @@ const App = () => {
             (error) => {
                 if (error.response) {
                     const msg = error.response.data?.message || error.message
-                    if (error.response.status === 401) {
+                    if (error.response.status === 401 && !error.config.url.includes('/login')) {
                         localStorage.removeItem('aToken')
                         window.location.reload()
                     }
