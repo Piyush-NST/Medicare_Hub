@@ -103,8 +103,8 @@ This repository contains the backend and frontend for a Doctor Appointment Booki
     "success": true,
     "userData": {
       "_id": "6733a5da3d19cd11facb9680",
-      "name": "Soniya",
-      "email": "soniyam@01gmail.com",
+      "name": "Piyush",
+      "email": "piyush@gmail.com",
       "image": "image_url",
       "address": {
         "line1": "",
